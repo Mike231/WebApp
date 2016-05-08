@@ -1,0 +1,115 @@
+$def with (students)
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebApp</title>
+	</head>
+	<style>
+    table{
+        border: 8px bevel;
+        border-collapse: collapse;
+        width: 50%;
+        margin: auto;
+        background-color: #D6D6D6;
+        border-style: inset;
+    }
+    th{
+        text-align: left;
+    }
+    td{
+        height: 10px;
+        color: black;
+    }
+    
+    
+    tr:hover{background-color:  white;}
+    
+    input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 2em;
+    
+    }
+    p{
+        font-family: "Times New Roman", Times, serif;
+        text-decoration: bold;
+    }
+    h2{
+        text-decoration: underline;
+    }
+    button{
+        height: 60px;
+        width: 20%;
+        color: blue;
+        position: fixed;
+        right: 0px;
+        margin: 10px;
+        z-index: 5;
+        bottom: 0%; 
+    }
+    .logoutButton{
+        height: 35px;
+        width: 90px;
+        position: relative;
+        left: 95%;
+        margin: 5px;
+    }
+    .uploadButton{
+            height: 35px;
+            width: 90px;
+            position: relative;
+            left: 95%;
+            margin: 5px;
+    }
+    body{
+		background-image: url("http://i.imgur.com/LoH5mFc.jpg");
+		background-size: cover;
+	}
+</style>
+	<body>
+	    <div>
+    	    <form action="logout" method="GET">
+    	        <input  class="logoutButton" type="submit" name="button" value="Logout"/>
+    	    </form>
+    	    <form action="upload" method="GET">
+    	        <input class="uploadButton" type="submit" name="button" value="Manage CSV"/>
+    	    </form>
+    	    <form action="advise" method="GET">
+    	        <input class="uploadButton" type="submit" name="button" value="Return"/>
+    	    </form>
+        </div>
+        <hr>
+	    <div>
+	        <form action="students" name="students" method="GET">
+    	    <div>
+        		<table>
+        		    <tr>
+        		      <p>
+                            <td><h2>LastName</h2></td>
+                            <td><h2>FirstName</h2></td>
+                            <td></td>
+                        </p>
+                    </tr>
+        		    $for i in range(0, len(students)):
+        		        <p>
+            		        <tr>
+            	                <td>$students[i][0]</td>
+            	                <td>$students[i][1]</td>
+            	                <td><input type="radio" id="student" name="student" value=$students[i][0] checked ></td>
+            		        </tr>
+        		        </p>
+        		</table>
+        	</div>
+        	<div>
+        		<p>
+                    <label for="adviseButton">
+                        <button class="button" type="submit" name="advise" id="sticker">
+                            <h2>Advise<h2>
+                        </button>
+                    </label>
+                </p>
+            </div>
+            </form>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,301 @@
+$def with (student)
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <style>
+            table.t1{
+            border-collapse: collapse;
+            width: 240px;
+            height: 180px;
+            border-radius: 10px;
+            margin: auto;
+        }
+        table.t1, th.t1, td.t1{
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px;
+        }
+        .center{
+            margin: auto;
+            padding: 1px;
+        }
+        .right{
+            position: absolute;
+            right: 0px;
+            width: 300px;
+            border: 3px solid black;
+            padding: 10px;
+        }
+        .left{
+            position: absolute;
+            left: 0px;
+            width: 300px;
+            border: 3px solid black;
+            padding: 10px;
+        }
+        .h1{
+            text-align: center;
+        }
+        .cbtn {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            padding: 4px 6px;
+            border: 1px solid #273098;
+            border-radius: 8px;
+            background: #4a5bff;
+            background: -webkit-gradient(linear, left top, left bottom, from(#4a5bff), to(#273098));
+            background: -moz-linear-gradient(top, #4a5bff, #273098);
+            background: linear-gradient(to bottom, #4a5bff, #273098);
+            text-shadow: #171d5a 1px 1px 1px;
+            font: normal normal bold 20px arial;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .cbtn:hover,
+        .cbtn:focus {
+            border: 1px solid #2e39b3;
+            background: #596dff;
+            background: -webkit-gradient(linear, left top, left bottom, from(#596dff), to(#2f3ab6));
+            background: -moz-linear-gradient(top, #596dff, #2f3ab6);
+            background: linear-gradient(to bottom, #596dff, #2f3ab6);
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .cbtn:active {
+            background: #273098;
+            background: -webkit-gradient(linear, left top, left bottom, from(#273098), to(#273098));
+            background: -moz-linear-gradient(top, #273098, #273098);
+            background: linear-gradient(to bottom, #273098, #273098);
+        }
+        .cbtn:after{
+            content:  "\0000a0";
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+            line-height: 24px;
+            margin: 0 -4px -6px 4px;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEtElEQVRIiZVVXWwUVRT+zr0z23UXkAIFJFCLQaSCChEMPzERYxAoCjFG409ifCI++QooAUN4EA1qiEpijD9EjQ8mUqQBIj+RRCQIEVrLUqCU3ZaWpe2W3Z3dmZ177/FhdnbbQAFvcnNv5t75vnO+880Zwl3G05vbYJgnA5gnBU0nQsQYFAxzJxHaCJQ/vm3eqO/TaAfL3m+N1Y2z35w/M/7W9Ik1C+vutyMRW0BphuMZDOR89AyUsl1p9/drA97nRHTk6Na590awbkdizfMLxu96atbYBhCQdQ3ynkGxZFD0Ga5voA1QYxHiEcKNm7452ZH7rXfAW394y9y+UQmWbGoVj8yIbXtp8cQNDZNqxE1Xw/UZnjJwfYbrM0qaYQzDMCqrIKA2JnHqYi7ZftVZ1bKpsf22BJt/Tm1vWli76WpGwZaEMTUCvmYUfQNPAYYZzABzsDcG0IahTUA6IS5x9oqTbL3iLNq/cU4aAEQI/s5XnWtWPVm7QUqBujEWtAEGChpOiaEMwZKAbQlELCpPAbu8ty0BSwpkCgZPNMTrH5wS3RXiCgB4Zuu/0WWN4z6J2EI4JQPNjGiEYAmClKgAhmC2RbBlAG5ZArYkWJIgBSFXMmicEXv51U8vPg4AFgDMnnbfmoemRmdliwbKMDzN8DVgWwRBBCKACAADDMAwVfQnHdQgvOMrYFxMiqkTIq8BOGcBwMwp0bWuYngaUIahDCoRCQEIUS0Vc1hgQBsCEYM0hp0DmhljY9bSt7+8DGvtjoSQkuYXfIY2AFMZvEwQkoQUhikAMQyhOcgMIwl8xYhIqleaLUtpRFyf6z3FIAp1DzStZFGWKQQwzBCmLE0YfeguCRhDIEIsk1fCyhcVHE8bw4AtEYCLKoElCKKcRUUCAwhNIJjKM5ZV6xpJ0Jq780WtRK7ou0M5vx0ItBYEiHLklghcErEJEVtUpyXKAYhASkmQAhVJjWHki+qPYx/MNeLMRwvgevpgeqgEMYxEDpdqhOcJVriOqFMwSQCFojJnLmV/qnwHbV3Z71PXi3m/XDRBw0kQfGSSYNtVAmtY1EJU39Ga0ZFyWo639v5dITjd0dfV2+/uvJByoBQHPaTi/6DIVjmDMGoSAInqHSJAKUZXj5P+9UTfu/4vK0y1VTQ34cejXR/2XC80X0g6yBUUuNx3wFWXhI4kAAQqr0GVfd/gcnd+8Iej197o6s10hraV4cac3+Mn4usOPVAbnRG1xWNOiRGNCERrxEiLDmtwvmLkixqeq3Dsn8HEniM9ryeS/cfQ3IRbCADAa/uueJpWHsg43DkpbjeCMbHoGsRjFoQg+Aq4MeSj6GqokkG638O5S9n+rw/1frH3z9T6dMZpHw4eZnvreLFFWFJOenh67XMrF03e8sryqbOjNRLZIdecPJ8dHHJUOtFT6Eik8oe7b2Rbso6bRHOTuh3UqL9MAFiy8VysaXHdxeULaqcNZjyze3/3zoOnUp8pZVyACyAqoHn1nSCCbnq7sfS9Vsypj298tCE+7URrxt17Ir39+Nmej7FvtXtHxHslEALPlkp6xe7m5LeJ5M1vkn1Df2FfU+n/gAN3kuiF/RaA8QDlQXDvJsVo4z8DAFihH/PTVQAAAABJRU5ErkJggg==") no-repeat left center transparent;
+            background-size: 100% 100%;
+        }
+        .gbtn{
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            padding: 4px 6px;
+            border: 1px solid #273098;
+            border-radius: 8px;
+            background: #4a5bff;
+            background: -webkit-gradient(linear, left top, left bottom, from(#4a5bff), to(#273098));
+            background: -moz-linear-gradient(top, #4a5bff, #273098);
+            background: linear-gradient(to bottom, #4a5bff, #273098);
+            text-shadow: #171d5a 1px 1px 1px;
+            font: normal normal bold 20px arial;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .gbtn:hover,
+        .gbtn:focus {
+            border: 1px solid #2e39b3;
+            background: #596dff;
+            background: -webkit-gradient(linear, left top, left bottom, from(#596dff), to(#2f3ab6));
+            background: -moz-linear-gradient(top, #596dff, #2f3ab6);
+            background: linear-gradient(to bottom, #596dff, #2f3ab6);
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .gbtn:active {
+            background: #273098;
+            background: -webkit-gradient(linear, left top, left bottom, from(#273098), to(#273098));
+            background: -moz-linear-gradient(top, #273098, #273098);
+            background: linear-gradient(to bottom, #273098, #273098);
+        }
+        .gbtn:before{
+            content:  "\0000a0";
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+            line-height: 24px;
+            margin: 0 4px -6px -4px;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            background: url("data:image/png;base64,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") no-repeat left center transparent;
+            background-size: 100% 100%;
+        }
+        .vertical_line{
+            height:50px; 
+            width:1px;
+            background:#000;
+            margin: auto;
+        }
+        .logoutButton{
+            height: 35px;
+            width: 90px;
+            position: relative;
+            left: 95%;
+            margin: 5px;
+        }
+        .uploadButton{
+            height: 35px;
+            width: 90px;
+            position: relative;
+            left: 95%;
+            margin: 5px;
+        }
+         .submitButton{
+            height: 60px;
+            width: 20%;
+            color: blue;
+            position: fixed;
+            right: 0px;
+            margin: 10px;
+            z-index: 5;
+            bottom: 0%; 
+        }
+        body{
+            background-color: #B5B5B5;
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+    	    <form action="logout" method="GET">
+    	        <input class="logoutButton" type="submit" name="button" value="Logout"/>
+    	    </form>
+    	    <form action="upload" method="GET">
+    	        <input class="uploadButton" type="submit" name="button" value="Manage CSV"/>
+    	    </form>
+    	    <form action="advise" method="GET">
+    	        <input class="uploadButton" type="submit" name="button" value="Return"/>
+    	    </form>
+        </div>
+        <hr>
+        <div>
+            <h3>Start Here!</h3>    
+        </div>
+        <hr>
+        <div class="center">
+           <table>
+               <td>
+                   <tr>
+                       $:student[0]
+                   </tr>
+                   <tr>
+                       <div class="vertical_line"></div>
+                   </tr>   
+                   <tr>
+                       $:student[1]
+                   </tr>
+                </td>
+           </table>
+        </div>
+        <hr>
+        <div>
+            <h3>Knowledge ~ Must take all</h3>    
+        </div>
+        <div>
+            <table class="center">
+                <tr>
+                    <td> $:student[3]</td>
+                    <td> $:student[2]</td>
+                    <td> $:student[5]</td>
+                    <td> $:student[15]</td>
+                </tr>
+                 <tr>
+                    <td><div class="vertical_line"></div></td>
+                    <td><div class="vertical_line"></div></td>
+                    <td><div class="vertical_line"></div></td>
+                    <td><div class="vertical_line"></div></td>
+                </tr>    
+                <tr>
+                    <td> $:student[4]</td>
+                    <td> $:student[8]</td>
+                    <td> $:student[6]</td>
+                    <td> $:student[7]</td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div>
+            <h3>MATH, SCIENCE, ENGINEERING(MSE) ~ Must take all</h3>    
+        </div>
+        <div>
+            <table class="center">
+                <tr>
+                    <td> $:student[13]</td>
+                    <td> $:student[16]</td>
+                    <td> $:student[12]</td>
+                </tr>
+                 <tr>
+                    <td><div class="vertical_line"></div></td>
+                    <td><div class="vertical_line"></div></td>
+                    <td><div class="vertical_line"></div></td>
+                </tr>    
+                <tr>
+                    <td> $:student[14]</td>
+                    <td> $:student[17]</td>
+                    <td> $:student[11]</td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div>
+            <h3>SKILLS ~ Must Take One</h3>
+            <h>CPS493-Elect-1 ⇒ Database, Web Programming, Networks, AI/Robotics, Embedded Linux</h2>
+        </div>
+        <div>
+            <table class="center">
+                <tr>
+                    <td></td>
+                    <td>$:student[9]</td>
+                    <td></td>
+                </tr>
+                <tr class="center">
+                    <td></td>
+                    <td><div class="vertical_line"></div></td>
+                </tr>
+                <tr class="center">
+                    <td></td>
+                    <td>$:student[10]</td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+    <script>
+        var canSubmit = false;
+        function getGrade(clicked){
+            var grades =["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"];
+            var getClicked = "g_"+clicked.name;
+            var getData = document.getElementById(getClicked).value
+            var inData = prompt("Enter a new grade: "+grades+"\nClass: "+clicked.name+"\nCurrent grade is: "+getData)
+            
+            if(grades.indexOf(inData) != -1){
+                canSubmit = true
+                document.getElementById(getClicked).value = inData;
+            }
+        }
+        function getComment(clicked){
+            var getClicked = "c_"+clicked.name;
+            var getData = document.getElementById(getClicked).value;
+            var inData = window.prompt("Comment for: "+clicked.name+"\nCurrent comment: " + getData, "");
+            
+            if(inData.trim() != ""){
+                canSubmit = true;
+                document.getElementById(getClicked).value = inData;
+            }
+            
+            
+        }
+        function confirm(){
+            return canSubmit;
+        }
+    </script>
+</html>

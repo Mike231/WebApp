@@ -1,0 +1,45 @@
+$def with (form, error)
+<!DOCTYPE html>
+<html>
+	<style>
+	form {
+    	float: right;
+    	padding: 4%;
+    	
+	}
+	input[type="submit"] {
+    	float: right;
+	}
+	p {
+	    float: right;
+	    right: 5%;
+	    position: absolute;
+	    padding-top: 20px;
+	}
+	body{
+		background-image: url("http://i.imgur.com/LoH5mFc.jpg");
+		background-size: cover;
+	}
+	.errormsg{
+		color: red;
+		margin-top: 30px;
+	}
+	</style>
+	<head>
+		<title>WebApp</title>
+	</head>
+	<body>
+		<div>
+			<form method="POST">
+					$:form.render()
+					<input type="submit" name="button" value="Login"/>
+						$if error == True:
+						<div class="errormsg">
+							<p>	
+								Incorrect Username/Password
+							</p>
+						</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+$def with (error)
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <style>
+        .logoutButton{
+            height: 35px;
+            width: 90px;
+            position: relative;
+            left: 93.75%;
+            margin: 5px;
+        }
+        .downloadButton{
+            height: 50px;
+            width: 250px;
+            position: relative;
+            left: 85%;
+            margin: 10px;
+            margin-top: 50px;
+        }
+        .left{
+            
+            color: red;
+            position: relative;
+            left: 80%;
+            margin: 30px;
+            margin-top: 50px;
+        }
+        body{
+            background-image: url("http://i.imgur.com/LoH5mFc.jpg");
+		    background-size: cover;
+        }
+        .errormsg{
+    		color: red;
+    		position: relative;
+            left: 10%;
+	    }
+	    .returnButton{
+            height: 35px;
+            width: 90px;
+            position: relative;
+            left: 93.75%;;
+            margin: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+    	    <form action="logout" method="GET">
+    	        <input class="logoutButton" type="submit" name="button" value="Logout"/>
+    	    </form>
+    	    <form action="advise" method="GET">
+    	        <input class="returnButton" type="submit" name="button" value="Return"/>
+    	    </form>
+        </div>
+        
+        <hr>
+        <tabel>
+            <th>
+                <tr>
+                    <button class="downloadButton" type="submit" onclick="window.open('https://preview.c9users.io/crazedmonkey231/webapp/ex50/csvFiles/CurrentDatabaseCSV.csv')">Download Current Database CSV!</button>
+                </tr>
+                <tr>
+                    <div class="left">
+                        <form enctype="multipart/form-data" action="upload" method="POST">
+                          <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                          <input name="userfile" type="file" accept=".csv"/>
+                          <input type="submit" value="Submit File" />
+                        </form>
+                        	$if error == True:
+						<div class="errormsg">
+							<p>	
+								Incorrect file format. 
+							</p>
+						</div>
+                    </div>
+                </tr>
+            </th>
+        </tabel>
+    </body>
+    <script>
+    </script>
+</html>
